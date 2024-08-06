@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const uebanist = Urbanist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,12 +12,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="bg-slate-900 text-slate-100">
+      <body className={uebanist.className}>
+        <Header />
+        {children}
+        <div className="h-[500vh]"></div>
+      </body>
     </html>
   );
 }
